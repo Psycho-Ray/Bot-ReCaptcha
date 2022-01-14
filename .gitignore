@@ -1,0 +1,6 @@
+/botReCaptcha/chromedriver.exe
+/botReCaptcha/geckodriver.exe
+/botReCaptcha/geckodriver.log
+
+/venv/
+/.idea/
