@@ -3,6 +3,7 @@ import os
 from botcity.web import WebBot, Browser
 
 from botcity.plugins.captcha import BotAntiCaptchaPlugin
+from botcity.plugins.http import BotHttpPlugin
 
 
 class Bot(WebBot):
@@ -27,11 +28,11 @@ class Bot(WebBot):
         self.execute_javascript('document.getElementById("g-recaptcha-response").innerHTML = "%s"' % response)
 
         # Clicks submit
-        self.find('submit')
-        self.click()
+        submit = self.find_element("#recaptcha-demo-submit")
+        submit.click()
 
         # Checks if it worked
-        assert self.find('uhu')
+        assert self.find_element(".recaptcha-success")
         print("Success!")
 
         # Stop the browser and clean up
